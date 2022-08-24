@@ -1,0 +1,48 @@
+# TestCompile.yml
+# Github workflow script to test compile all examples of an Arduino library repository.
+#
+# Copyright (C) 2021-2022  Armin Joachimsmeyer
+# https://github.com/ArminJo/Github-Actions
+#
+
+# This is the name of the workflow, visible on GitHub UI.
+name: TestCompile
+on:
+  workflow_dispatch: # To run it manually
+    description: 'manual build check'
+  push: # see: https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
+    paths:
+      - '**.ino'
+      - '**.cpp'
+      - '**.h'
+      - '**TestCompile.yml'
+
+jobs:
+  build:
+    name: Test compiling examples for Nano
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # The matrix will produce one job for each configuration parameter of type `build-properties`
+        build-properties:
+          - -DDUMMY
+          - -DROBOT_ARM_HAS_IR_CONTROL
+          - -DROBOT_ARM_HAS_RTC_CONTROL
+        include:
+          - build-properties: -DROBOT_ARM_HAS_IR_CONTROL
+            required-libraries: IRremote
+
+          - build-properties: -DROBOT_ARM_HAS_RTC_CONTROL
+            required-libraries: uRTCLib
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Compile all examples
+        uses: ArminJo/arduino-test-compile@master
+        with:
+          arduino-board-fqbn: arduino:avr:nano:cpu=atmega328
+          required-libraries: 'EasyButtonAtInt01,ServoEasing,Servo,${{ matrix.required-libraries }}'
+          build-properties: '{ "All": ${{ toJson(matrix.build-properties) }} }'
+#          debug-install: true
