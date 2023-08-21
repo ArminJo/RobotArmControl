@@ -5,7 +5,7 @@ Program for controlling a [robot arm with 4 servos](https://www.instructables.co
 
 [![Badge License: GPLv3](https://img.shields.io/badge/License-GPLv3-brightgreen.svg)](https://www.gnu.org/licenses/gpl-3.0)
  &nbsp; &nbsp; 
-[![Badge Version](https://img.shields.io/github/v/release/ArminJo/RobotArmControl?include_prereleases&color=yellow&logo=DocuSign&logoColor=white)](https://github.com/ServoEasing/RobotArmControl/releases/latest)
+[![Badge Version](https://img.shields.io/github/v/release/ArminJo/RobotArmControl?include_prereleases&color=yellow&logo=DocuSign&logoColor=white)](https://github.com/ArminJo/RobotArmControl/releases/latest)
  &nbsp; &nbsp; 
 [![Badge Commits since latest](https://img.shields.io/github/commits-since/ArminJo/RobotArmControl/latest?color=yellow)](https://github.com/ArminJo/RobotArmControl/commits/master)
  &nbsp; &nbsp; 
