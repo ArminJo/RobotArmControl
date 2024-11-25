@@ -21,6 +21,10 @@ Used in the "RobotArmControl" example of Arduino library [ServoEasing](https://g
 
 </div>
 
+#### If you find this library useful, please give it a star.
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/ArminJo/RobotArmControl)
+
 <br/>
 
 | RobotArm | Control board | Instructable |
